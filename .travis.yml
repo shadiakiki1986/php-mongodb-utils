@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+- docker
+
+language: php
+php:
+- 7.0
+
+before_install:
+- composer initMongoTestDb
+
+install:
+- pecl install mongodb
+- composer install
+
+script:
+- composer test
+
+after_script:
+- docker ps|grep mongo|awk '{print "docker stop " $1}'|bash
