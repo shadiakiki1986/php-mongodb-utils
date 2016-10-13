@@ -17,7 +17,7 @@ class Utils {
     $mdb=$mcl->listDatabases();
     $mdb=iterator_to_array($mdb);
     $mdb=array_map(function($x) { return $x->getName(); }, $mdb);
-    if(!in_array($dbname,$mdb)) throw new \Exception("Database ".$dbname." not created. Please follow the installation instructions of database-augmenter");
+    if(!in_array($dbname,$mdb)) throw new \Exception("Database ".$dbname." not created. Aborting.");
 
     // check that the AugmentedSecurities collectionName exists, otherwise add it
     // actually, no need for this because the Mongo client class automatically does it
