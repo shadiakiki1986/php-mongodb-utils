@@ -25,7 +25,7 @@
             "MONGO_ADDR=\"mongodb://localhost:27017\" phpunit --verbose"
         ],
         "initMongoTestDb": [
-          "ID=`docker run -d -p 27017:27017 mongo` && docker exec -i $ID mongo --eval 'db.coll.insert({field:\"value\"})'"
+          "ID=`docker run -d -p 27017:27017 mongo` && sleep 5 && docker exec -i $ID mongo --eval 'db.coll.insert({field:\"value\"})'"
         ]
     },
     "require-dev": {
