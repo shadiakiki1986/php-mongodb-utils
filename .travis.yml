@@ -19,3 +19,7 @@ script:
 
 after_script:
 - docker ps|grep mongo|awk '{print "docker stop " $1}'|bash
+
+branches:
+  only:
+  - master
